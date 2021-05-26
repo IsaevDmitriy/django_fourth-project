@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Телефон</h1>
+        </div>
+
+        <div class="content">
+            {% for item in phones %}
+                <img src="{{ item.image }}" width=100>
+                <p>Название - {{ item.name }}</p>
+                <p>Цена - {{ item.price }}</p>
+                <p>Дата релиза - {{ item.release_date }}</p>
+                {% if item.lte_exists == True %}
+                       <p>Наличие LTE - Да</p>
+                {% endif %}
+                {% if item.lte_exists == False %}
+                       <p>Наличие LTE - Нет</p>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}
